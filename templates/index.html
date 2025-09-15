@@ -1,0 +1,351 @@
+{% extends 'base.html' %}
+
+{% block title %}Marksheet Processing System{% endblock %}
+
+{% block content %}
+
+<!-- Landing Section -->
+<section id="landing" class="section landing-section min-vh-100 position-relative">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <span class="text-gradient">Marksheet Processing</span><br>
+                        Made Simple
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        Efficiently extract and process data from 10th, 12th, and semester marksheets.
+                        Convert PDF marksheets to organized Excel files with ease.
+                    </p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-4">
+                            <div class="feature-card text-center p-3 bg-white rounded-3 shadow-sm">
+                                <i class="fas fa-upload text-primary fs-2 mb-2"></i>
+                                <h6 class="fw-semibold mb-1">Easy Upload</h6>
+                                <small class="text-muted">Drag & drop PDFs</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-card text-center p-3 bg-white rounded-3 shadow-sm">
+                                <i class="fas fa-cogs text-success fs-2 mb-2"></i>
+                                <h6 class="fw-semibold mb-1">Auto Process</h6>
+                                <small class="text-muted">AI-powered extraction</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-card text-center p-3 bg-white rounded-3 shadow-sm">
+                                <i class="fas fa-download text-info fs-2 mb-2"></i>
+                                <h6 class="fw-semibold mb-1">Quick Export</h6>
+                                <small class="text-muted">Excel format output</small>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg px-4 py-2" onclick="showSection('login')">
+                        <i class="fas fa-rocket me-2"></i>
+                        Get Started
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-visual text-center">
+                    <div class="floating-card bg-white p-4 rounded-4 shadow-lg d-inline-block">
+                        <div class="floating-icon mb-3">
+                            <i class="fas fa-file-pdf text-danger display-1"></i>
+                        </div>
+                        <h5 class="fw-semibold mb-2">Upload Marksheet</h5>
+                        <p class="text-muted small mb-0">PDF processing ready</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Login Section -->
+<section id="login" class="section hidden min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="login-card bg-white p-4 rounded-4 shadow-lg">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-shield-alt text-primary display-4 mb-3"></i>
+                        <h2 class="fw-bold mb-2">Login</h2>
+                        <p class="text-muted">Access the marksheet extraction system</p>
+                    </div>
+                    <div class="mb-3">
+                        <a href="/login/google" class="btn btn-outline-danger w-100 py-2 fw-medium">
+                            <i class="fab fa-google me-2"></i>
+                            Continue with Google
+                        </a>
+                    </div>
+                    <div class="text-center mb-3">
+                        <small class="text-muted">or login with username</small>
+                    </div>
+                    <form onsubmit="handleLogin(event)">
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-medium">Username</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-user text-muted"></i>
+                                </span>
+                                <input type="text" class="form-control" id="username" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-medium">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-lock text-muted"></i>
+                                </span>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-medium">
+                            <i class="fas fa-sign-in-alt me-2"></i>
+                            Login
+                        </button>
+                        <div class="text-center mt-3">
+                            <small class="text-muted">Don't have an account? <a href="#" onclick="showSection('register')">Create Account</a></small>
+                        </div>
+                        <div class="text-center mt-2">
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Registration Section -->
+<section id="register" class="section hidden min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="register-card bg-white p-4 rounded-4 shadow-lg">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-user-plus text-success display-4 mb-3"></i>
+                        <h2 class="fw-bold mb-2">Create Account</h2>
+                        <p class="text-muted">Register to access the marksheet extraction system</p>
+                    </div>
+                    <form id="register-form">
+                        <div class="mb-3">
+                            <label for="register-username" class="form-label fw-medium">Username</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-user text-muted"></i>
+                                </span>
+                                <input type="text" class="form-control" id="register-username" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-email" class="form-label fw-medium">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-envelope text-muted"></i>
+                                </span>
+                                <input type="email" class="form-control" id="register-email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-password" class="form-label fw-medium">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-lock text-muted"></i>
+                                </span>
+                                <input type="password" class="form-control" id="register-password" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="register-confirm" class="form-label fw-medium">Confirm Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-lock text-muted"></i>
+                                </span>
+                                <input type="password" class="form-control" id="register-confirm" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 py-2 fw-medium">
+                            <i class="fas fa-user-plus me-2"></i> Register
+                        </button>
+                        <div class="text-center mt-3">
+                            <small class="text-muted">Already have an account? <a href="#" onclick="showSection('login')">Login</a></small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dashboard Section -->
+<section id="dashboard" class="section hidden py-5">
+    <div class="container">
+        <!-- Dashboard Header -->
+        <div class="text-center mb-5">
+            <h1 class="fw-bold mb-3">Marksheet Processing Dashboard</h1>
+            <p class="lead text-muted">Select a marksheet type and upload your PDF file for processing</p>
+            <div id="user-greeting" class="alert alert-info hidden"></div>
+        </div>
+
+        <!-- Marksheet Type Selection -->
+        <div class="marksheet-types mb-5">
+            <h3 class="text-center mb-4">Choose Marksheet Type</h3>
+            <div class="row g-3">
+                <!-- 10th type -->
+                <div class="col-md-4">
+                    <div class="type-btn card h-100 border-2 cursor-pointer" data-type="10th" onclick="selectType('10th')">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="type-icon me-3 bg-primary bg-opacity-10 rounded-3 p-3">
+                                <span class="fs-1">🎓</span>
+                            </div>
+                            <div class="type-content">
+                                <h5 class="card-title fw-semibold mb-2">10th Marksheet</h5>
+                                <p class="card-text text-muted small mb-0">Extract data from Class 10 marksheets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 12th type -->
+                <div class="col-md-4">
+                    <div class="type-btn card h-100 border-2 cursor-pointer" data-type="12th" onclick="selectType('12th')">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="type-icon me-3 bg-success bg-opacity-10 rounded-3 p-3">
+                                <span class="fs-1">📜</span>
+                            </div>
+                            <div class="type-content">
+                                <h5 class="card-title fw-semibold mb-2">12th Marksheet</h5>
+                                <p class="card-text text-muted small mb-0">Extract data from Class 12 marksheets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Semester type -->
+                <div class="col-md-4">
+                    <div class="type-btn card h-100 border-2 cursor-pointer" data-type="semester" onclick="selectType('semester')">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="type-icon me-3 bg-danger bg-opacity-10 rounded-3 p-3">
+                                <span class="fs-1">🏆</span>
+                            </div>
+                            <div class="type-content">
+                                <h5 class="card-title fw-semibold mb-2">Semester Marksheet</h5>
+                                <p class="card-text text-muted small mb-0">Extract data from university semester marksheets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upload Section -->
+        <div id="upload-section" style="display: none;">
+            <!-- Upload Area -->
+            <div id="upload-area" class="upload-area card border-dashed border-2 p-5 text-center bg-light">
+                <div class="upload-content">
+                    <i class="fas fa-cloud-upload-alt text-primary display-1 mb-3"></i>
+                    <h4 class="fw-semibold mb-3">Upload Your Marksheet</h4>
+                    <p class="text-muted mb-3">Drag and drop your marksheet PDF here or click to browse</p>
+                    <input type="file" id="file-input" class="d-none" accept=".pdf,.jpg,.jpeg,.png">
+                    <button class="btn btn-outline-primary mb-3" id="choose-file-btn">
+                        <i class="fas fa-folder-open me-2"></i>
+                        Choose File
+                    </button>
+                    <br>
+                    <small class="text-muted">Supported format: PDF, JPG, JPEG, PNG (Max 10MB)</small>
+                    <br>
+                    <button class="btn btn-outline-secondary btn-sm mt-3" onclick="addDemoFile()">
+                        <i class="fas fa-magic me-1"></i>
+                        Load Demo File
+                    </button>
+                </div>
+            </div>
+            <!-- Selected File -->
+            <div id="selected-file" class="selected-file card d-none">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-file-pdf text-danger fs-2 me-3"></i>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1 fw-semibold" id="file-name">filename.pdf</h6>
+                            <small class="text-muted" id="file-size">1.2 MB</small>
+                        </div>
+                        <button class="btn btn-outline-danger btn-sm" onclick="clearFile()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="d-grid">
+                        <button class="btn btn-primary" onclick="processFile()">
+                            <i class="fas fa-cogs me-2"></i>
+                            Process Marksheet
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Processing Status -->
+            <div id="processing-status" class="processing-status card d-none">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-spinner fa-spin text-primary fs-2"></i>
+                    </div>
+                    <h5 class="fw-semibold mb-3">Processing Your Marksheet</h5>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div id="progress-fill" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%;"></div>
+                    </div>
+                    <p id="status-text" class="text-muted mb-0">Initializing...</p>
+                </div>
+            </div>
+            <!-- Download Section -->
+            <div id="download-section" class="download-section card d-none">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle text-success display-1 mb-3"></i>
+                        <h4 class="fw-semibold mb-2">Processing Complete!</h4>
+                        <p class="text-muted">Your marksheet data has been extracted and converted to Excel format.</p>
+                    </div>
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="bg-light rounded-3 p-3">
+                                <div class="fw-bold text-primary fs-4" id="records-count">0</div>
+                                <small class="text-muted">Records Extracted</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-light rounded-3 p-3">
+                                <div class="fw-bold text-success fs-4" id="file-size-stat">0 KB</div>
+                                <small class="text-muted">File Size</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <button class="btn btn-success" onclick="downloadFile()">
+                            <i class="fas fa-download me-2"></i>
+                            Download Excel
+                        </button>
+                        <button class="btn btn-outline-primary" onclick="resetProcess()">
+                            <i class="fas fa-redo me-2"></i>
+                            Process Another
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Upload History -->
+        <div class="upload-history mt-5">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0 fw-semibold">
+                        <i class="fas fa-history me-2"></i>
+                        Recent Processing History
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="history-list">
+                        <p class="text-center text-muted fst-italic mb-0 p-3">No files processed yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

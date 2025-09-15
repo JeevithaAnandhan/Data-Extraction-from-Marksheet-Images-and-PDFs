@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Marksheet Processing System{% endblock %}</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Header -->
+    <header class="header sticky-top">
+        <div class="container">
+            <div class="header-content d-flex align-items-center justify-content-between py-3">
+                <div class="logo d-flex align-items-center">
+                    <i class="fas fa-file-alt text-primary me-2 fs-3"></i>
+                    <span class="fw-bold fs-4">MarksheetPro</span>
+                </div>
+                <nav class="nav d-flex align-items-center gap-4">
+                    <a href="#" class="nav-link" onclick="showSection('landing')" id="home-link">
+                        <i class="fas fa-home me-1"></i> Home
+                    </a>
+                    <a href="#" class="nav-link hidden" onclick="showSection('dashboard')" id="dashboard-link">
+                        <i class="fas fa-tachometer-alt me-1"></i> Dashboard
+                    </a>
+                    <a href="#" class="nav-link" onclick="showSection('login')" id="login-link">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login
+                    </a>
+                    <a href="#" class="nav-link" onclick="showSection('register')" id="register-link">
+                        <i class="fas fa-user-plus me-1"></i> Register
+                    </a>
+                    <a href="#" class="nav-link hidden" onclick="logout()" id="logout-link">
+                        <i class="fas fa-sign-out-alt me-1"></i> Logout
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Modals/Overlays Block (for pop-up forms, etc.) -->
+    {% block modals %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer bg-light border-top mt-auto">
+        <div class="container">
+            <div class="row py-4">
+                <div class="col-md-4">
+                    <h5 class="fw-semibold mb-3">MarksheetPro</h5>
+                    <p class="text-muted small mb-0">
+                        Efficiently extract and process data from 10th, 12th, and semester marksheets.
+                        Convert PDF marksheets to organized Excel files with ease.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-semibold mb-3">Features</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">PDF Processing</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Data Extraction</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Excel Export</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Batch Processing</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-semibold mb-3">Support</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Documentation</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Help Center</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Contact Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top pt-3 pb-2">
+                <div class="text-center">
+                    <p class="text-muted small mb-0">© 2024 MarksheetPro. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+        <!-- Toasts will be dynamically added here -->
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,773 @@
+:root {
+  --primary-color: #20b2aa;
+  --primary-hover: #17a2a2;
+  --success-color: #40e0d0;
+  --danger-color: #ff6b6b;
+  --warning-color: #ffd93d;
+  --info-color: #6bcf7f;
+  --light-bg: #0f2027;
+  --white: #1a2332;
+  --border-color: #2c3e50;
+  --text-muted: #d5c8ce;
+  --text-dark: #ffffff;  /* Changed to pure white for better contrast */
+  --text-primary: #b8d4da;
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.6);
+  --border-radius: 0.5rem;
+  --transition: all 0.3s ease;
+  --dark-bg: #0a1828;
+  --card-bg: #1a2332;
+  --peacock-accent: #008080;
+  --peacock-light: #40e0d0;
+  --peacock-dark: #004d4d;
+}
+
+/* Base styles with dark peacock theme */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0a1828 0%, #0f2027 50%, #1a2332 100%);
+  min-height: 100vh;
+  color: var(--text-dark);
+}
+
+/* Header styles - Dark peacock theme */
+.header {
+  background: rgba(10, 24, 40, 0.95);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--peacock-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.logo {
+  font-weight: 700;
+  color: var(--peacock-light);
+  text-decoration: none;
+}
+
+.nav-link {
+  color: var(--text-primary) !important;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--peacock-light) !important;
+  background-color: rgba(32, 178, 170, 0.2);
+}
+
+.nav-link.active {
+  color: var(--peacock-light) !important;
+  background-color: rgba(32, 178, 170, 0.2);
+}
+
+/* Section management */
+.section {
+  min-height: calc(100vh - 120px);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.section.hidden {
+  display: none !important;
+}
+
+/* Landing section - Dark peacock theme */
+.landing-section {
+  background: linear-gradient(135deg, rgba(32, 178, 170, 0.1) 0%, rgba(64, 224, 208, 0.08) 100%), 
+              linear-gradient(45deg, #0a1828 0%, #0f2027 50%, #1a2332 100%);
+  position: relative;
+  overflow: hidden;
+  color: var(--text-dark);
+}
+
+/* Hero content with peacock theme */
+.hero-content h1 {
+  color: var(--text-dark) !important;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--peacock-light), var(--success-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  color: var(--text-primary) !important;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Feature cards - Dark peacock theme */
+.feature-card {
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(26, 35, 50, 0.8) 100%) !important;
+  color: var(--text-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--peacock-accent);
+  background: linear-gradient(145deg, rgba(26, 35, 50, 0.9) 0%, rgba(32, 178, 170, 0.1) 100%) !important;
+}
+
+.feature-card h6 {
+  color: var(--text-dark) !important;
+  font-weight: 600;
+}
+
+.feature-card small {
+  color: var(--text-muted) !important;
+}
+
+.hero-visual .floating-card {
+  animation: float 3s ease-in-out infinite;
+  border: 1px solid var(--peacock-accent);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(64, 224, 208, 0.1) 100%) !important;
+  color: var(--text-dark) !important;
+  box-shadow: 0 0 20px rgba(32, 178, 170, 0.3);
+}
+
+.hero-visual .floating-card h5 {
+  color: var(--text-dark) !important;
+}
+
+.hero-visual .floating-card p {
+  color: var(--text-muted) !important;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Login section - Dark peacock theme */
+.login-section {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(32, 178, 170, 0.1) 100%), 
+              linear-gradient(45deg, #0a1828 0%, #0f2027 100%);
+  color: var(--text-dark);
+}
+
+/* Registration section - Dark peacock theme */
+.register-section {
+  background: linear-gradient(135deg, rgba(64, 224, 208, 0.1) 0%, rgba(32, 178, 170, 0.1) 100%), 
+              linear-gradient(45deg, #0a1828 0%, #0f2027 100%);
+  color: var(--text-dark);
+}
+
+.login-card, .register-card {
+  border: 1px solid var(--peacock-accent);
+  max-width: 400px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(26, 35, 50, 0.9) 100%) !important;
+  color: var(--text-dark) !important;
+  box-shadow: 0 0 30px rgba(32, 178, 170, 0.2);
+}
+
+.login-header h2 {
+  color: var(--text-dark) !important;
+}
+
+.login-header p {
+  color: var(--text-muted) !important;
+}
+
+.input-group-text {
+  border-color: var(--border-color);
+  background-color: var(--light-bg);
+  color: var(--text-muted);
+}
+
+/* Dashboard styles - Dark peacock theme */
+.dashboard-section {
+  background: var(--dark-bg);
+  color: var(--text-dark);
+}
+
+.dashboard-header h1 {
+  color: var(--text-dark) !important;
+}
+
+.dashboard-header p {
+  color: var(--text-primary) !important;
+}
+
+/* Marksheet type cards - Dark peacock theme */
+.marksheet-types .type-btn {
+  cursor: pointer;
+  transition: var(--transition);
+  border-color: var(--border-color) !important;
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(26, 35, 50, 0.8) 100%) !important;
+  color: var(--text-dark) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.marksheet-types .type-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--peacock-light) !important;
+  background: linear-gradient(145deg, rgba(26, 35, 50, 0.9) 0%, rgba(32, 178, 170, 0.15) 100%) !important;
+}
+
+.marksheet-types .type-btn.active {
+  border-color: var(--peacock-light) !important;
+  background: linear-gradient(145deg, rgba(32, 178, 170, 0.2) 0%, rgba(64, 224, 208, 0.1) 100%) !important;
+  box-shadow: 0 0 20px rgba(32, 178, 170, 0.3);
+}
+
+.marksheet-types .type-btn[data-type="10th"].active {
+  border-color: #6bcf7f !important;
+  background: linear-gradient(145deg, rgba(107, 207, 127, 0.2) 0%, rgba(64, 224, 208, 0.1) 100%) !important;
+  box-shadow: 0 0 20px rgba(107, 207, 127, 0.3);
+}
+
+.marksheet-types .type-btn[data-type="12th"].active {
+  border-color: var(--success-color) !important;
+  background: linear-gradient(145deg, rgba(64, 224, 208, 0.2) 0%, rgba(32, 178, 170, 0.1) 100%) !important;
+  box-shadow: 0 0 20px rgba(64, 224, 208, 0.3);
+}
+
+.marksheet-types .type-btn[data-type="semester"].active {
+  border-color: var(--danger-color) !important;
+  background: linear-gradient(145deg, rgba(255, 107, 107, 0.2) 0%, rgba(64, 224, 208, 0.1) 100%) !important;
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+.type-content h5 {
+  color: var(--text-dark) !important;
+}
+
+.type-content p {
+  color: var(--text-muted) !important;
+}
+
+/* Upload area - Dark peacock theme */
+.upload-area {
+  cursor: pointer;
+  transition: var(--transition);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(26, 35, 50, 0.8) 100%) !important;
+  color: var(--text-dark) !important;
+  border-color: var(--border-color) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.upload-area:hover {
+  border-color: var(--peacock-light) !important;
+  background: linear-gradient(145deg, rgba(26, 35, 50, 0.9) 0%, rgba(32, 178, 170, 0.1) 100%) !important;
+  box-shadow: 0 0 15px rgba(32, 178, 170, 0.2);
+}
+
+.upload-area.drag-over {
+  border-color: var(--peacock-light) !important;
+  background: linear-gradient(145deg, rgba(32, 178, 170, 0.1) 0%, rgba(64, 224, 208, 0.05) 100%) !important;
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(32, 178, 170, 0.4);
+}
+
+.upload-content h4 {
+  color: var(--text-dark) !important;
+}
+
+.upload-content p {
+  color: var(--text-primary) !important;
+}
+
+.upload-content small {
+  color: var(--text-muted) !important;
+}
+
+.border-dashed {
+  border-style: dashed !important;
+}
+
+/* File selection - Dark peacock theme */
+.selected-file {
+  border: 1px solid var(--peacock-accent);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(32, 178, 170, 0.05) 100%) !important;
+  color: var(--text-dark) !important;
+  box-shadow: 0 0 15px rgba(32, 178, 170, 0.2);
+}
+
+.selected-file h6 {
+  color: var(--text-dark) !important;
+}
+
+.selected-file small {
+  color: var(--text-muted) !important;
+}
+
+/* Processing status - Dark peacock theme */
+.processing-status {
+  border: 1px solid var(--peacock-accent);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(32, 178, 170, 0.05) 100%) !important;
+  color: var(--text-dark) !important;
+  box-shadow: 0 0 20px rgba(32, 178, 170, 0.3);
+}
+
+.processing-status h5 {
+  color: var(--text-dark) !important;
+}
+
+.processing-status p {
+  color: var(--text-muted) !important;
+}
+
+.progress {
+  background-color: rgba(32, 178, 170, 0.2);
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, var(--peacock-light), var(--success-color));
+}
+
+/* Download section - Dark peacock theme */
+.download-section {
+  border: 1px solid var(--peacock-accent);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(64, 224, 208, 0.05) 100%) !important;
+  color: var(--text-dark) !important;
+  box-shadow: 0 0 20px rgba(64, 224, 208, 0.3);
+}
+
+.download-section h4 {
+  color: var(--text-dark) !important;
+}
+
+.download-section p {
+  color: var(--text-primary) !important;
+}
+
+.stat .fw-bold {
+  color: var(--peacock-light) !important;
+}
+
+.stat small {
+  color: var(--text-muted) !important;
+}
+
+/* History section - Dark peacock theme */
+.upload-history .card {
+  border: 1px solid var(--border-color);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(26, 35, 50, 0.8) 100%) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(32, 178, 170, 0.05) 100%) !important;
+  color: var(--text-dark) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h5 {
+  color: var(--text-dark) !important;
+}
+
+.card-body {
+  color: var(--text-dark) !important;
+}
+
+.history-item {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.history-item:hover {
+  background: linear-gradient(145deg, var(--light-bg) 0%, rgba(32, 178, 170, 0.1) 100%);
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-file {
+  font-weight: 600;
+  color: var(--text-dark) !important;
+}
+
+.history-time {
+  font-size: 0.875rem;
+  color: var(--text-muted) !important;
+}
+
+/* Footer styles - Dark peacock theme */
+.footer {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(26, 35, 50, 0.9) 100%);
+  border-top: 1px solid var(--peacock-accent);
+  margin-top: auto;
+  color: var(--text-dark);
+}
+
+.footer h5, .footer h6 {
+  color: var(--text-dark) !important;
+}
+
+.footer p {
+  color: var(--text-muted) !important;
+}
+
+.footer a {
+  color: var(--text-muted) !important;
+}
+
+.footer a:hover {
+  color: var(--peacock-light) !important;
+}
+
+/* Button enhancements - Peacock theme */
+.btn {
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--peacock-accent) 0%, var(--peacock-light) 100%);
+  border-color: var(--peacock-accent);
+  color: #ffffff !important;
+  box-shadow: 0 0 10px rgba(32, 178, 170, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--peacock-accent) 100%);
+  border-color: var(--primary-hover);
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(32, 178, 170, 0.4);
+}
+
+.btn-outline-primary {
+  color: var(--peacock-light) !important;
+  border-color: var(--peacock-light);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--peacock-light);
+  border-color: var(--peacock-light);
+  color: #ffffff !important;
+}
+
+.btn-outline-secondary {
+  color: var(--text-primary) !important;
+  border-color: var(--border-color);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--border-color);
+  border-color: var(--border-color);
+  color: var(--text-dark) !important;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success-color) 0%, var(--info-color) 100%);
+  color: #ffffff !important;
+  box-shadow: 0 0 10px rgba(64, 224, 208, 0.3);
+}
+
+.btn-outline-danger {
+  color: var(--danger-color) !important;
+  border-color: var(--danger-color);
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  color: #ffffff !important;
+}
+
+/* ENHANCED Form controls - Dark peacock theme with better visibility */
+.form-control {
+  color: #ffffff !important; /* Pure white text */
+  background-color: rgba(15, 32, 39, 0.8) !important; /* Semi-transparent dark background */
+  border: 2px solid var(--border-color) !important;
+  border-radius: var(--border-radius) !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  padding: 0.75rem 1rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.form-control:hover {
+  background-color: rgba(15, 32, 39, 0.9) !important;
+  border-color: var(--peacock-accent) !important;
+  color: #ffffff !important;
+}
+
+.form-control:focus {
+  background-color: rgba(15, 32, 39, 0.95) !important;
+  border-color: var(--peacock-light) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 0.2rem rgba(64, 224, 208, 0.25) !important;
+  outline: none !important;
+}
+
+.form-control:active {
+  background-color: rgba(15, 32, 39, 0.95) !important;
+  color: #ffffff !important;
+}
+
+.form-label {
+  color: var(--text-dark) !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+  font-size: 0.95rem !important;
+}
+
+/* Enhanced input field styles - Fix for registration form */
+input.form-control,
+input.form-control:hover,
+input.form-control:focus,
+input.form-control:active,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea.form-control {
+  background-color: rgba(15, 32, 39, 0.9) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--peacock-accent) !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+}
+
+input.form-control:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea.form-control:focus {
+  background-color: rgba(15, 32, 39, 1) !important;
+  color: #ffffff !important;
+  border-color: var(--peacock-light) !important;
+  box-shadow: 0 0 0 0.25rem rgba(64, 224, 208, 0.3) !important;
+  outline: none !important;
+}
+
+/* Enhanced placeholder styling */
+input.form-control::placeholder,
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+textarea.form-control::placeholder {
+  color: #a8b8c0 !important;
+  opacity: 1 !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+}
+
+/* Input group styling */
+.input-group-text {
+  background-color: var(--peacock-accent) !important;
+  border: 2px solid var(--peacock-accent) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* Cards and backgrounds */
+.card {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(26, 35, 50, 0.8) 100%) !important;
+  border-color: var(--border-color);
+  color: var(--text-dark) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.bg-light {
+  background: linear-gradient(145deg, var(--light-bg) 0%, rgba(15, 32, 39, 0.8) 100%) !important;
+}
+
+/* Status badges - Peacock theme */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.status--success {
+  background-color: rgba(64, 224, 208, 0.2);
+  color: var(--success-color) !important;
+  border: 1px solid rgba(64, 224, 208, 0.3);
+}
+
+.status--error {
+  background-color: rgba(255, 107, 107, 0.2);
+  color: var(--danger-color) !important;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.status--warning {
+  background-color: rgba(255, 217, 61, 0.2);
+  color: var(--warning-color) !important;
+  border: 1px solid rgba(255, 217, 61, 0.3);
+}
+
+.status--info {
+  background-color: rgba(107, 207, 127, 0.2);
+  color: var(--info-color) !important;
+  border: 1px solid rgba(107, 207, 127, 0.3);
+}
+
+/* Custom scrollbar - Peacock theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--peacock-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--peacock-light);
+}
+
+/* Toast styles - Peacock theme */
+.toast {
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(26, 35, 50, 0.9) 100%);
+}
+
+.toast-header {
+  background-color: var(--light-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Ensure all text is visible */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-dark) !important;
+}
+
+p {
+  color: var(--text-primary) !important;
+}
+
+.lead {
+  color: var(--text-primary) !important;
+}
+
+/* Bootstrap overrides */
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.text-primary {
+  color: var(--peacock-light) !important;
+}
+
+.text-success {
+  color: var(--success-color) !important;
+}
+
+.text-danger {
+  color: var(--danger-color) !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-dark {
+  color: var(--text-dark) !important;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.spinner-grow-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Focus states */
+.form-control:focus {
+  border-color: var(--peacock-light);
+  box-shadow: 0 0 0 0.2rem rgba(32, 178, 170, 0.25);
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(32, 178, 170, 0.25);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  .feature-card {
+    margin-bottom: 1rem;
+  }
+  
+  .type-btn {
+    margin-bottom: 1rem;
+  }
+  
+  .nav {
+    gap: 1rem !important;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 2rem !important;
+  }
+  
+  .login-card, .register-card {
+    margin: 1rem;
+    padding: 1.5rem !important;
+  }
+  
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .upload-area {
+    padding: 2rem !important;
+  }
+}
