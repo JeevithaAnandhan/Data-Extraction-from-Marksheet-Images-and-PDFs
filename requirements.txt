@@ -1,3 +1,6 @@
+setuptools>=65
+wheel
+
 asgiref==3.9.1
 bcrypt==4.3.0
 blinker==1.9.0
